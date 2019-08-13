@@ -2,7 +2,7 @@
 
 function largerNum(num1, num2) {
     // you code here
-
+    return Math.max(num1, num2);
 }
 
 // 2. Given two numbers, amount correct and amount possible of a test, return the corresponding letter grade.
@@ -14,7 +14,22 @@ function largerNum(num1, num2) {
 // output: "F"
 
 function testGrader(score, possible) {
-
+    // find the percentage of number correct
+    let grade = ((score / possible) * 100)
+    switch (True) {
+        case grade >= 90:
+            return "A";
+            break;
+        case grade >= 80:
+            return "B";
+            break;
+        case grade >= 70:
+            return "C";
+            break;
+        case grade >= 60: return "D";
+        default: return "F";
+    }
+}
 }
 
 
