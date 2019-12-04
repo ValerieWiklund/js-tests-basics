@@ -14,11 +14,10 @@ function largerNum(num1, num2) {
 // output: "F"
 
 function testGrader(score, possible) {
-    // find the percentage of number correct
     let grade = ((score / possible) * 100)
-    switch (True) {
+    switch (grade >= 0) {
         case grade >= 90:
-            return "A";
+            return "A"
             break;
         case grade >= 80:
             return "B";
@@ -27,10 +26,11 @@ function testGrader(score, possible) {
             return "C";
             break;
         case grade >= 60: return "D";
-        default: return "F";
+        default:
+            return "F";
     }
 }
-}
+
 
 
 // --------------------------------------------
@@ -45,13 +45,31 @@ function testGrader(score, possible) {
 
 function timeOfDayGreeting(hour) {
     // you code below
-
+    switch (hour >= 0) {
+        case (hour >= 5 && hour <= 11):
+            return "Good Morning";
+            break;
+        case (hour >= 12 && hour <= 17):
+            return "Good Afternoon";
+            break;
+        case (hour >= 18 && hour <= 21):
+            return "Good Evening";
+            break;
+        default:
+            return "Good Night";
+    }
 }
-
 //4. Write a function that will take in a number and return 'fever' if it indicates a fever (over 98.6) and additionally if the person should go to the hospital (at or above 103) 'fever go to hospital' (hint: try this with string concatenation), if it is under return 'no fever'
 function isFever(temp) {
-
+    if (temp >= 103) {
+        return "fever go to hospital";
+    } else if (temp > 98.6) {
+        return "fever";
+    } else return "no fever";
 }
+
+
+
 
 //5. Write a function that takes in a car object, if it is not moving then return true
 let myCar = {
@@ -62,8 +80,9 @@ let myCar = {
 }
 
 function isStopped(car) {
-
+    return !car.moving;
 }
+
 
 //6. Write a function that returns true if a dish is yours and is dirty, or false if one of the statements is false
 
@@ -73,5 +92,8 @@ let dish = {
 }
 
 function washDish(dish) {
+    if (dish.yourDish == true && dish.isDirty == true) {
+        return true;
+    } else return false;
 
 }
