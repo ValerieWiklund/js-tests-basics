@@ -62,15 +62,42 @@ function daysPosition(day, offset) {
  */
 
 function golfScore(score, par) {
+    let diff = score - par;
+    if (score !== 1 || diff !== -3) {
+        switch (diff) {
+            case -2:
+                output = "Eagle";
+                break;
+            case -1:
+                output = "Birdie";
+                break;
+            case 0:
+                output = "Par";
+                break;
+            case 1:
+                output = "Bogie";
+                break;
+            case 2:
+                output = "Double Bogie";
+                break;
+            default:
+                output = "Ouch";
+        }
+    }
+    else {
+        output = "Ace"
+    }
+    return output
 
 }
-
 
 // --------------------------------------------
 
 
-// 3. Counting Cards. In the casino game Blackjack, a player can gain an advantage over the house by keeping track of the relative number of high and low cards remaining in the deck. This is called card counting.  
-// Having more high cards remaining in the deck favors the player. Each card is assigned a value according to the table below. When the count is positive, the player should bet high. When the count is zero or negative, the player should bet low.
+// 3. Counting Cards. In the casino game Blackjack, a player can gain an advantage over the house by keeping track of the relative number of high and low cards remaining in the deck. 
+// This is called card counting.  
+// Having more high cards remaining in the deck favors the player. Each card is assigned a value according to the table below. When the count is positive, the player should bet high.
+// When the count is zero or negative, the player should bet low.
 /**
  *      Value   |   Cards
  *   --------------------------------
@@ -85,7 +112,31 @@ function golfScore(score, par) {
 // output: '2 Bet'
 
 let count = 0
-
+let output = "";
 function cardCounter(card) {
+    switch (card) {
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+            count++;
+            break;
+        case '10':
+        case 'J':
+        case 'Q':
+        case 'K':
+            count--;
+            break;
+        default:
+            break;
+    }
+    if (count > 0) {
+        output = count + " " + "Bet";
+    }
+    else {
+        output = count + " " + "Hold";
+    }
+    return output;
 
 }
