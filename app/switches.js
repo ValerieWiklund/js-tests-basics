@@ -102,8 +102,8 @@ function golfScore(score, par) {
  *      Value   |   Cards
  *   --------------------------------
  *       +1     |   '2', '3', '4', '5', '6'
- *        0     |	'7', '8', '9' 
- *       -1	    |   '10', 'J', 'Q', 'K','A' 
+ *        0     |	'7', '8', '9'
+ *       -1	    |   '10', 'J', 'Q', 'K','A'
  */
 // Write a card counting function that will receive a card. The function will increment or decrement the global count variable according to the card's value (see table above). The function will then return the current count and the string "Bet" if the count is positive, or "Hold" if the count is zero or negative.
 // Example:
@@ -111,8 +111,8 @@ function golfScore(score, par) {
 // Example:
 // output: '2 Bet'
 
-let count = 0
-let output = "";
+let count = 0;
+let output;
 function cardCounter(card) {
     switch (card) {
         case '2':
@@ -132,11 +132,10 @@ function cardCounter(card) {
             break;
     }
     if (count > 0) {
-        output = count + " " + "Bet";
+        output = `${count} + Bet`;
     }
     else {
-        output = count + " " + "Hold";
+        output = `${count} + Hold`;
     }
     return output;
-
 }
